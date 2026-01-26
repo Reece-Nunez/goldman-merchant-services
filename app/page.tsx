@@ -80,6 +80,7 @@ export default function Home() {
         description="Goldman Merchant Services delivers secure, compliant, and scalable payment solutions designed to help small and mid-sized businesses grow — backed by a private-equity platform focused on long-term value creation."
         primaryCTA={{ label: "Get Started", href: "/contact" }}
         secondaryCTA={{ label: "Request a Quote", href: "/contact?type=quote" }}
+        backgroundImage="/pos-interaction.png"
       />
 
       {/* Intro Section */}

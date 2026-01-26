@@ -110,20 +110,38 @@ export default function AboutPage() {
             <FadeInRight>
               <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm border border-slate-100">
                 <div className="text-center mb-8">
-                  <Image
-                    src="/goldman-fund-logo-dark.png"
-                    alt="The Goldman Fund"
-                    width={180}
-                    height={180}
-                    className="mx-auto mb-4"
-                  />
+                  <a
+                    href="https://www.thegoldmanfund.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block hover:opacity-80 transition-opacity"
+                  >
+                    <Image
+                      src="/goldman-fund-logo-dark.png"
+                      alt="The Goldman Fund"
+                      width={180}
+                      height={180}
+                      className="mx-auto mb-4"
+                    />
+                  </a>
                   <h3 className="text-xl font-semibold text-slate-900">The Goldman Fund</h3>
                   <p className="text-slate-500">Parent Company</p>
                 </div>
-                <p className="text-slate-600 text-center">
+                <p className="text-slate-600 text-center mb-6">
                   Goldman Merchant Services is a portfolio company of The Goldman Fund, a private
                   equity platform focused on acquiring and supporting small and mid-sized businesses.
                 </p>
+                <div className="text-center">
+                  <a
+                    href="https://www.thegoldmanfund.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
+                  >
+                    Visit The Goldman Fund
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </FadeInRight>
           </div>

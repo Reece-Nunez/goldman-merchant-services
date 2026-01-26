@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import PageLayout from "../components/PageLayout";
 import { PageHero } from "../components/ParallaxHero";
 import { FadeInUp, StaggerContainer, StaggerItem, HoverCard } from "../components/animations";
@@ -20,36 +21,42 @@ const industries = [
     title: "Retail & Brick-and-Mortar",
     description: "Modern POS systems, countertop terminals, and integrated payment solutions designed for retail environments.",
     features: ["Fast checkout processing", "Inventory integration", "Customer loyalty programs", "Multi-location support"],
+    image: "/retail.png",
   },
   {
     icon: UserGroupIcon,
     title: "Restaurants & Food Service",
     description: "Tableside payments, quick-service solutions, and tip management for restaurants of all sizes.",
     features: ["Tableside payment devices", "Tip adjustment features", "Kitchen integration", "Delivery & takeout support"],
+    image: "/restaurant.png",
   },
   {
     icon: HomeModernIcon,
     title: "Home & Field Services",
     description: "Mobile payment solutions for contractors, plumbers, electricians, and other service professionals.",
     features: ["Mobile card readers", "Invoice on-the-go", "Quote to payment workflow", "Recurring service billing"],
+    image: "/field.png",
   },
   {
     icon: BriefcaseIcon,
     title: "Professional Services",
     description: "Payment solutions for consultants, attorneys, accountants, and other professional service providers.",
     features: ["Invoice payments", "Retainer billing", "Trust account compliance", "Client portal integration"],
+    image: "/professional.png",
   },
   {
     icon: HeartIcon,
     title: "Medical & Wellness",
     description: "HIPAA-compliant payment processing for healthcare providers, clinics, and wellness businesses.",
     features: ["HIPAA compliance", "Patient payment plans", "Insurance copay processing", "Appointment integration"],
+    image: "/medical.png",
   },
   {
     icon: ShoppingBagIcon,
     title: "E-Commerce & Online Brands",
     description: "Powerful online payment gateways, shopping cart integration, and subscription billing for digital businesses.",
     features: ["Shopping cart plugins", "Subscription management", "Digital product delivery", "Multi-currency support"],
+    image: "/e-commerce.jpg",
   },
 ];
 
@@ -68,20 +75,31 @@ export default function IndustriesPage() {
             {industries.map((industry) => (
               <StaggerItem key={industry.title}>
                 <HoverCard className="h-full">
-                  <div className="bg-slate-50 rounded-xl p-8 h-full border border-slate-100 hover:border-amber-200 transition-colors">
-                    <div className="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-6">
-                      <industry.icon className="w-7 h-7 text-amber-600" />
+                  <div className="bg-slate-50 rounded-xl overflow-hidden h-full border border-slate-100 hover:border-amber-200 transition-colors">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={industry.image}
+                        alt={industry.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center">
+                        <industry.icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-slate-900 mb-3">{industry.title}</h3>
-                    <p className="text-slate-600 mb-6">{industry.description}</p>
-                    <ul className="space-y-2">
-                      {industry.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm text-slate-500">
-                          <CheckCircleIcon className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-slate-900 mb-3">{industry.title}</h3>
+                      <p className="text-slate-600 mb-6">{industry.description}</p>
+                      <ul className="space-y-2">
+                        {industry.features.map((feature) => (
+                          <li key={feature} className="flex items-center gap-2 text-sm text-slate-500">
+                            <CheckCircleIcon className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </HoverCard>
               </StaggerItem>

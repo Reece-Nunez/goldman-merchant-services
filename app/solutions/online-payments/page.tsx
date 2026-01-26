@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import PageLayout from "../../components/PageLayout";
-import { PageHero } from "../../components/ParallaxHero";
+import ParallaxHero from "../../components/ParallaxHero";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../../components/animations";
 import {
   GlobeAltIcon,
@@ -54,10 +54,13 @@ const benefits = [
 export default function OnlinePaymentsPage() {
   return (
     <PageLayout>
-      <PageHero
+      <ParallaxHero
         badge="Online Payments"
         title="Online & E-Commerce Payment Solutions"
         description="Power your digital business with secure and flexible online payment tools. Whether you sell products, services, or subscriptions, we help you collect payments efficiently while protecting customer data."
+        backgroundImage="/online-payments.jpg"
+        minHeight="70vh"
+        showScrollIndicator={false}
       />
 
       {/* Capabilities Section */}

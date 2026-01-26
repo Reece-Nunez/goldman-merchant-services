@@ -20,6 +20,7 @@ interface ParallaxHeroProps {
   children?: ReactNode;
   minHeight?: string;
   showScrollIndicator?: boolean;
+  backgroundImage?: string;
 }
 
 export default function ParallaxHero({
@@ -32,6 +33,7 @@ export default function ParallaxHero({
   children,
   minHeight = "100vh",
   showScrollIndicator = true,
+  backgroundImage,
 }: ParallaxHeroProps) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -57,29 +59,24 @@ export default function ParallaxHero({
         {/* Base Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
 
-        {/* Geometric Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5"/>
-              </pattern>
-              <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#b8860b" stopOpacity="0.3"/>
-                <stop offset="50%" stopColor="#d4a944" stopOpacity="0.1"/>
-                <stop offset="100%" stopColor="#996f0a" stopOpacity="0.2"/>
-              </linearGradient>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#hero-grid)"/>
-          </svg>
-        </div>
+        {/* Background Image (if provided) */}
+        {backgroundImage && (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+              style={{ backgroundImage: `url(${backgroundImage})` }}
+            />
+            {/* Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/30 to-slate-900/50" />
+          </>
+        )}
 
-        {/* Floating Geometric Shapes */}
+        {/* Subtle Ambient Glow */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute top-[10%] right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-amber-500/20 to-transparent blur-3xl"
+          className="absolute top-[10%] right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-amber-500/15 to-transparent blur-3xl"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -87,44 +84,6 @@ export default function ParallaxHero({
           transition={{ duration: 1.5, delay: 0.7 }}
           className="absolute bottom-[20%] left-[5%] w-80 h-80 rounded-full bg-gradient-to-tr from-amber-600/10 to-transparent blur-3xl"
         />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.9 }}
-          className="absolute top-[40%] left-[30%] w-64 h-64 rounded-full bg-gradient-to-r from-amber-500/10 to-yellow-500/10 blur-2xl"
-        />
-
-        {/* Animated Lines */}
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <motion.line
-            x1="0%" y1="30%" x2="100%" y2="70%"
-            stroke="url(#hero-gradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.3 }}
-            transition={{ duration: 2, delay: 1 }}
-          />
-          <motion.line
-            x1="100%" y1="20%" x2="0%" y2="80%"
-            stroke="url(#hero-gradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.2 }}
-            transition={{ duration: 2, delay: 1.3 }}
-          />
-        </svg>
-
-        {/* Dot Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1" fill="#b8860b"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dots)"/>
-          </svg>
-        </div>
       </motion.div>
 
       {/* Content */}

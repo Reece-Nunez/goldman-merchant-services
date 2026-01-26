@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import PageLayout from "../components/PageLayout";
-import { PageHero } from "../components/ParallaxHero";
+import ParallaxHero from "../components/ParallaxHero";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../components/animations";
 import {
   CurrencyDollarIcon,
@@ -57,10 +57,13 @@ const partnerTypes = [
 export default function PartnersPage() {
   return (
     <PageLayout>
-      <PageHero
+      <ParallaxHero
         badge="Partner Program"
         title="Partner With Goldman Merchant Services"
         description="Our partner program is built for ISOs, brokers, and strategic partners looking for a reliable processing platform backed by institutional experience."
+        backgroundImage="/partnership.jpg"
+        minHeight="70vh"
+        showScrollIndicator={false}
       />
 
       {/* Benefits */}

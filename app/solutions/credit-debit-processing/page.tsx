@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import PageLayout from "../../components/PageLayout";
 import { PageHero } from "../../components/ParallaxHero";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../../components/animations";
@@ -43,15 +44,18 @@ const features = [
   },
 ];
 
-const cardTypes = [
-  "Visa",
-  "Mastercard",
-  "American Express",
-  "Discover",
+const cardLogos = [
+  { name: "Visa", logo: "/logos/visa.svg" },
+  { name: "Mastercard", logo: "/logos/mastercard.svg" },
+  { name: "American Express", logo: "/logos/amex.svg" },
+  { name: "Discover", logo: "/logos/discover.svg" },
+];
+
+const additionalPayments = [
   "Debit Cards",
   "Prepaid Cards",
-  "Digital Wallets",
-  "Contactless",
+  "Apple Pay",
+  "Google Pay",
 ];
 
 export default function CreditDebitProcessingPage() {
@@ -122,16 +126,36 @@ export default function CreditDebitProcessingPage() {
             </FadeInLeft>
 
             <FadeInRight>
-              <div className="grid grid-cols-2 gap-4">
-                {cardTypes.map((card) => (
-                  <div
-                    key={card}
-                    className="bg-white rounded-lg p-4 flex items-center gap-3 shadow-sm border border-slate-100"
-                  >
-                    <CheckCircleIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                    <span className="text-slate-700 font-medium">{card}</span>
-                  </div>
-                ))}
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                {/* Card Network Logos */}
+                <div className="grid grid-cols-4 gap-6 mb-8">
+                  {cardLogos.map((card) => (
+                    <div
+                      key={card.name}
+                      className="flex items-center justify-center p-4 bg-white rounded-lg"
+                    >
+                      <Image
+                        src={card.logo}
+                        alt={card.name}
+                        width={60}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+                {/* Additional Payment Methods */}
+                <div className="grid grid-cols-2 gap-3">
+                  {additionalPayments.map((payment) => (
+                    <div
+                      key={payment}
+                      className="flex items-center gap-2 text-slate-600"
+                    >
+                      <CheckCircleIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                      <span className="text-sm font-medium">{payment}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </FadeInRight>
           </div>

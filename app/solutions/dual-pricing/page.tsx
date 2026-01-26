@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import PageLayout from "../../components/PageLayout";
-import { PageHero } from "../../components/ParallaxHero";
+import ParallaxHero from "../../components/ParallaxHero";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../../components/animations";
 import {
   CurrencyDollarIcon,
@@ -62,10 +62,13 @@ const howItWorks = [
 export default function DualPricingPage() {
   return (
     <PageLayout>
-      <PageHero
+      <ParallaxHero
         badge="Dual Pricing"
         title="Dual Pricing & Cash Discount Programs"
         description="Reduce processing costs while remaining transparent and compliant. Our dual pricing technology allows businesses to display both cash and card prices — giving customers a choice and helping merchants protect margins."
+        backgroundImage="/dual-pricing.png"
+        minHeight="70vh"
+        showScrollIndicator={false}
       />
 
       {/* Benefits Section */}
