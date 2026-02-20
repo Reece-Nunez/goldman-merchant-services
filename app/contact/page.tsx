@@ -8,6 +8,8 @@ import { EnvelopeIcon, ClockIcon } from "@heroicons/react/24/outline";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "", type: "general" });
+  const [honeypot, setHoneypot] = useState("");
+  const [formLoadedAt] = useState(() => Date.now());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -19,10 +21,18 @@ export default function ContactPage() {
     setError("");
 
     try {
+      if (honeypot) {
+        setSubmitted(true);
+        return;
+      }
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _t: formLoadedAt,
+        }),
       });
 
       if (!response.ok) {
@@ -86,6 +96,11 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="bg-slate-50 rounded-2xl p-8">
                   <h3 className="text-xl font-semibold text-slate-900 mb-6">Send Us a Message</h3>
                   <div className="space-y-4">
+                    {/* Honeypot - hidden from real users */}
+                    <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+                      <label htmlFor="website">Website</label>
+                      <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+                    </div>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-1">Name *</label>
