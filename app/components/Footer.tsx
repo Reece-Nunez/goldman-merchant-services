@@ -48,7 +48,8 @@ export default function Footer() {
             </p>
             <address className="not-italic text-slate-400 mt-6 text-sm">
               5940 S. Rainbow Boulevard<br />
-              Las Vegas, NV 89118
+              Las Vegas, NV 89118<br />
+              <a href="tel:+17028474449" className="hover:text-amber-400 transition-colors">702-847-4449</a>
             </address>
           </FadeInUp>
 

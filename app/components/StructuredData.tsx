@@ -22,6 +22,7 @@ export function OrganizationSchema() {
     },
     contactPoint: {
       "@type": "ContactPoint",
+      telephone: "+1-702-847-4449",
       contactType: "sales",
       availableLanguage: "English",
     },
@@ -54,6 +55,7 @@ export function LocalBusinessSchema() {
     description: "Payment processing and merchant services for small and mid-sized businesses.",
     url: "https://goldmanmerchantservices.com",
     logo: "https://goldmanmerchantservices.com/logo1.png",
+    telephone: "+1-702-847-4449",
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",

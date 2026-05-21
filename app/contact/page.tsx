@@ -4,7 +4,7 @@ import { useState } from "react";
 import PageLayout from "../components/PageLayout";
 import { PageHero } from "../components/ParallaxHero";
 import { FadeInUp, FadeInLeft, FadeInRight } from "../components/animations";
-import { EnvelopeIcon, ClockIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, ClockIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "", type: "general" });
@@ -60,6 +60,15 @@ export default function ContactPage() {
               <p className="text-slate-600 mb-8">Whether you&apos;re looking for payment solutions, have questions about pricing, or want to explore partnership opportunities, our team is ready to assist.</p>
 
               <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                    <PhoneIcon className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">Phone</h3>
+                    <p className="text-slate-600"><a href="tel:+17028474449" className="hover:text-amber-600 transition-colors">702-847-4449</a></p>
+                  </div>
+                </div>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
                     <EnvelopeIcon className="w-6 h-6 text-amber-600" />
