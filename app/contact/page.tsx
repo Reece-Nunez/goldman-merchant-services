@@ -4,7 +4,7 @@ import { useState } from "react";
 import PageLayout from "../components/PageLayout";
 import { PageHero } from "../components/ParallaxHero";
 import { FadeInUp, FadeInLeft, FadeInRight } from "../components/animations";
-import { EnvelopeIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, ClockIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "", type: "general" });
@@ -67,6 +67,15 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900">Email</h3>
                     <p className="text-slate-600">info@goldmanmerchantservices.com</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                    <MapPinIcon className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">Address</h3>
+                    <p className="text-slate-600">5940 S. Rainbow Boulevard<br />Las Vegas, NV 89118</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

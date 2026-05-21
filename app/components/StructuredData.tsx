@@ -12,6 +12,14 @@ export function OrganizationSchema() {
       url: "https://www.thegoldmanfund.com",
     },
     sameAs: [],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "5940 S. Rainbow Boulevard",
+      addressLocality: "Las Vegas",
+      addressRegion: "NV",
+      postalCode: "89118",
+      addressCountry: "US",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
@@ -47,6 +55,14 @@ export function LocalBusinessSchema() {
     url: "https://goldmanmerchantservices.com",
     logo: "https://goldmanmerchantservices.com/logo1.png",
     priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "5940 S. Rainbow Boulevard",
+      addressLocality: "Las Vegas",
+      addressRegion: "NV",
+      postalCode: "89118",
+      addressCountry: "US",
+    },
     areaServed: "United States",
     serviceType: "Merchant Services",
   };

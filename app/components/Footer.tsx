@@ -46,6 +46,10 @@ export default function Footer() {
               A Portfolio Company of The Goldman Fund. Delivering secure, compliant,
               and scalable payment solutions for growing businesses.
             </p>
+            <address className="not-italic text-slate-400 mt-6 text-sm">
+              5940 S. Rainbow Boulevard<br />
+              Las Vegas, NV 89118
+            </address>
           </FadeInUp>
 
           {/* Solutions Links */}
