@@ -78,9 +78,13 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add your verification codes here when ready
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
+    // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in your env (Vercel project settings)
+    // to the content="..." value from the GSC HTML-tag verification screen.
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    // Set NEXT_PUBLIC_BING_SITE_VERIFICATION to the msvalidate.01 content value from Bing Webmaster Tools.
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
   },
 };
 

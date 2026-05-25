@@ -3,6 +3,7 @@
 import Link from "next/link";
 import PageLayout from "../../components/PageLayout";
 import { PageHero } from "../../components/ParallaxHero";
+import FAQSection from "../../components/FAQSection";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../../components/animations";
 import {
   ShieldExclamationIcon,
@@ -200,6 +201,36 @@ export default function HighRiskPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        questions={[
+          {
+            question: "What makes a business 'high-risk' to payment processors?",
+            answer:
+              "A business is considered high-risk when it has higher-than-average chargeback rates, operates in a regulated industry (CBD, nutraceuticals, adult, gambling), uses subscription or continuity billing, sells high-ticket items, or has a history of processor terminations. High-risk doesn't mean bad business — it means the underwriting process is more rigorous and reserves or higher rates may apply.",
+          },
+          {
+            question: "How long does high-risk underwriting take?",
+            answer:
+              "Most high-risk applications are reviewed within 3-7 business days. Cleaner files — complete documentation, low chargeback history, established business — can move faster. Complex cases involving multiple MIDs, international processing, or MATCH-listed merchants may take 1-3 weeks. We'll give you a realistic timeline up front.",
+          },
+          {
+            question: "Can I get approved if a previous processor terminated my account?",
+            answer:
+              "Often, yes. Termination by a prior processor or even placement on the TMF (formerly MATCH) list does not automatically disqualify you. We work with merchants in this situation regularly. We'll need a clear explanation of the prior termination, any remediation steps you've taken, and current financial documentation to find the right underwriter.",
+          },
+          {
+            question: "What is a rolling reserve and will I need one?",
+            answer:
+              "A rolling reserve is a percentage of your daily processing (typically 5-10%) held in a non-interest-bearing account for a set period (usually 180 days) to cover potential chargebacks and refunds. Whether you need one depends on your industry, chargeback history, and processing volume. After the holding period, funds release on a rolling basis as new ones come in.",
+          },
+          {
+            question: "What documents do I need to apply for a high-risk merchant account?",
+            answer:
+              "Standard documentation includes: a signed merchant application, business formation documents (Articles of Incorporation or LLC filing), EIN letter, voided business check or bank letter, the last 3-6 months of business bank statements, the last 3-6 months of prior processing statements (if applicable), valid government ID for principals, and a clear refund/return policy on your website. Specific industries may require additional licenses or certificates.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">

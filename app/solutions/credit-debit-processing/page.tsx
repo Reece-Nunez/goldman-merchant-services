@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageLayout from "../../components/PageLayout";
 import { PageHero } from "../../components/ParallaxHero";
+import FAQSection from "../../components/FAQSection";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../../components/animations";
 import {
   CreditCardIcon,
@@ -161,6 +162,36 @@ export default function CreditDebitProcessingPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        questions={[
+          {
+            question: "Which card brands and payment methods can I accept?",
+            answer:
+              "Our credit and debit processing accepts all major card brands — Visa, Mastercard, American Express, and Discover — plus debit cards, prepaid cards, Apple Pay, Google Pay, and other contactless wallets. EMV chip cards and tap-to-pay are supported out of the box on every terminal we deploy.",
+          },
+          {
+            question: "How fast do I get my funds (funding/deposit time)?",
+            answer:
+              "Standard funding is next-business-day for most merchants, with batches cut off in the evening (typically 9 PM ET). Same-day and next-day deposits are available for qualifying accounts. New high-risk accounts may see longer initial holds; we'll set expectations clearly during onboarding.",
+          },
+          {
+            question: "Are there long-term contracts or early-termination fees?",
+            answer:
+              "Our standard merchant agreements do not include long-term lock-in contracts or punitive early-termination fees. We earn your business month-to-month with competitive rates and dedicated support. Equipment leases (if applicable) and any custom arrangements are disclosed in writing before you sign.",
+          },
+          {
+            question: "Is PCI compliance included? What about data security?",
+            answer:
+              "Yes. Every merchant account includes PCI DSS compliance support, end-to-end encryption, and tokenization. We provide the annual PCI self-assessment questionnaire (SAQ) tools and guidance. Sensitive cardholder data is encrypted at the terminal, never stored on your devices, and tokenized for any cards-on-file.",
+          },
+          {
+            question: "Will your terminals work with my existing POS software?",
+            answer:
+              "Most likely yes. Our terminals integrate with all major POS platforms — Clover, Square ecosystems, Toast, Lightspeed, Aloha, NCR, Shopify POS, and many others — via standard protocols. If you have a custom or vertical-specific POS, share the system name during the consultation and we'll confirm compatibility before any hardware is ordered.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">

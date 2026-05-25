@@ -3,6 +3,7 @@
 import Link from "next/link";
 import PageLayout from "../../components/PageLayout";
 import ParallaxHero from "../../components/ParallaxHero";
+import FAQSection from "../../components/FAQSection";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../../components/animations";
 import {
   GlobeAltIcon,
@@ -134,6 +135,36 @@ export default function OnlinePaymentsPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        questions={[
+          {
+            question: "What's the difference between a payment gateway and a merchant account?",
+            answer:
+              "A merchant account is the bank-side account that holds funds from your sales before they settle to your business bank account. A payment gateway is the technology layer that securely transmits card data from your checkout page to the processor. You need both to accept online payments. We provide them as a bundled solution, so there's only one onboarding and one point of support.",
+          },
+          {
+            question: "Which e-commerce platforms and shopping carts do you integrate with?",
+            answer:
+              "Our gateway integrates with Shopify, WooCommerce, BigCommerce, Magento, Wix, Squarespace, and most major SaaS storefronts via plugins. For custom builds, we provide REST APIs and SDKs for Node, PHP, Python, and .NET. If you have a headless or composable commerce stack, we'll review the integration during onboarding.",
+          },
+          {
+            question: "Do you support recurring billing and subscription payments?",
+            answer:
+              "Yes. We support flexible recurring billing — daily, weekly, monthly, annual, and custom intervals — with automatic retry logic for failed cards, account-updater services to keep cards-on-file current, dunning email workflows, and proration for plan changes. This is well suited for SaaS, membership, and continuity-program merchants.",
+          },
+          {
+            question: "How is PCI compliance handled for online payments?",
+            answer:
+              "Using our hosted checkout pages or tokenized iframe fields keeps cardholder data off your servers entirely, qualifying most merchants for the simplest PCI SAQ-A self-assessment. If you process card data through your own servers (SAQ-D scope), we provide tokenization, end-to-end encryption, and audit guidance to meet full PCI DSS requirements.",
+          },
+          {
+            question: "Can I accept international cards or multiple currencies?",
+            answer:
+              "Yes. Our gateway supports international card acceptance from Visa, Mastercard, Amex, and Discover networks worldwide. Multi-currency processing is available for qualifying accounts, allowing customers to pay in their local currency while you settle in USD. Cross-border interchange and currency-conversion fees apply and will be disclosed up front.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">

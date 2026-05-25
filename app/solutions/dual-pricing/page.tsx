@@ -3,6 +3,7 @@
 import Link from "next/link";
 import PageLayout from "../../components/PageLayout";
 import ParallaxHero from "../../components/ParallaxHero";
+import FAQSection from "../../components/FAQSection";
 import { FadeInUp, FadeInLeft, FadeInRight, StaggerContainer, StaggerItem } from "../../components/animations";
 import {
   CurrencyDollarIcon,
@@ -199,6 +200,36 @@ export default function DualPricingPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        questions={[
+          {
+            question: "Is dual pricing legal in all 50 states?",
+            answer:
+              "Yes. Dual pricing is legal nationwide when implemented as a cash-discount program, where the displayed price is the card price and customers paying cash receive a discount. This structure differs from a credit-card surcharge, which has additional state-level rules. We handle the compliance setup, signage, and receipt language so your program meets card-brand and state requirements.",
+          },
+          {
+            question: "How is dual pricing different from a credit card surcharge?",
+            answer:
+              "A surcharge adds a fee on top of the listed price when a customer pays by credit card. Dual pricing (cash discount) instead shows the card price as the base and offers a discount for cash. The end result for the customer can look similar, but the legal and card-brand treatment is different — dual pricing has broader nationwide acceptance and fewer disclosure restrictions.",
+          },
+          {
+            question: "Do I need to replace my POS or terminal to use dual pricing?",
+            answer:
+              "In most cases, no. Our dual pricing technology is compatible with most modern POS systems and standalone terminals. We provide the compliance signage, receipt formatting, and any required software configuration during onboarding. If your current hardware is incompatible, we will recommend a low-cost replacement.",
+          },
+          {
+            question: "How much will my business actually save?",
+            answer:
+              "Most merchants save 2-3% of their total credit card volume — the amount they previously paid in processing fees. For a business processing $1M annually in card volume, that's typically $20,000-$30,000 per year returned to the bottom line. Your exact savings depend on your card-vs-cash mix and current effective rate.",
+          },
+          {
+            question: "Will customers be upset by dual pricing?",
+            answer:
+              "Properly implemented dual pricing is transparent: customers see both the cash and card prices before choosing how to pay, exactly like a gas station. With clear signage and a polite explanation from staff, customer pushback is minimal. We provide signage templates and staff training scripts during onboarding to make the rollout smooth.",
+          },
+        ]}
+      />
 
       {/* CTA */}
       <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# graphify knowledge graph output (regenerated locally, project-specific)
+/graphify-out/
+
+# local Claude Code settings + hooks (machine-specific)
+/.claude/
